@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow - Your Dream Wedding Journey | Wedding Planning Services</title>
+    <meta name="description" content="Vow connects you with expert wedding planners to create your perfect wedding day. From venue selection to catering, we handle every detail with care.">
+    <meta name="keywords" content="wedding planning, wedding planner, dream wedding, wedding venue, wedding flowers, wedding cake, wedding catering">
+    <meta name="author" content="Vow Wedding Planning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- FIX: Added Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #a88868; /* Using a consistent dark color */
+            --secondary-color: #f5f5f5;
+            --accent-color: #333;
+            --text-color: #29272A; /* Using a consistent dark color */
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --gray-light: #f8f9fa;
+            --gray-medium: #dee2e6;
+            --gray-dark: #6c757d;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --success-color: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* NEW NAVIGATION BAR STYLES */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05); /* This makes it transparent */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .brand{
+          display:inline-flex;
+          align-items:center;
+          text-decoration:none;
+        }
+
+	.brand-mark {
+          display: flex;
+          justify-content: center;
+          height: 3.5rem; /* Reduced from 5rem */
+          width: auto;
+          object-fit: contain;
+          margin-top: 5px;   /* Reduced from 10px */
+          margin-bottom: 5px;/* Reduced from 10px */
+        }
+
+        .quick-action-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+	.back-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--gray-light) 0%, var(--white) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Budget Overview */
+        .budget-overview {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            max-width: 1000px;
+            margin: -30px auto 40px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .budget-input-section {
+            display: flex;
+            gap: 20px;
+            align-items: end;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 0;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: var(--white);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        .currency-input-group {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .currency-symbol {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            background-color: var(--gray-light);
+            border: 1px solid var(--gray-medium);
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            border-right: none;
+        }
+
+        .currency-input {
+            flex: 1;
+            border-radius: 0 !important;
+            border-left: none !important;
+        }
+
+        .update-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .update-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .budget-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: var(--gray-light);
+            padding: 20px;
+            border-radius: 0;
+            text-align: center;
+            border: 1px solid var(--gray-medium);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-card.danger .stat-value {
+            color: var(--danger-color);
+        }
+
+        .stat-card.warning .stat-value {
+            color: var(--warning-color);
+        }
+
+        .stat-card.success .stat-value {
+            color: var(--success-color);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Budget Categories */
+        .budget-categories {
+            background-color: var(--white);
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .category-item {
+            background-color: var(--gray-light);
+            padding: 20px;
+            border-radius: 0;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .category-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #a88868;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .category-percentage {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .category-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .category-input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-input label {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .category-input input {
+            padding: 8px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 0;
+            font-size: 0.95rem;
+            background-color: var(--white);
+        }
+
+        .category-input input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        .vendor-info {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--gray-medium);
+        }
+
+        .vendor-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 0;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            background-color: var(--white);
+        }
+
+        .vendor-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            background-color: var(--white);
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .chart-container {
+            margin-bottom: 30px;
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            grid-column: 1 / -1;
+            background-color: var(--white);
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tip-card {
+            background-color: var(--gray-light);
+            padding: 20px;
+            border-radius: 0;
+            border-left: 4px solid var(--primary-color);
+            border: 1px solid var(--gray-medium);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-content {
+            color: var(--light-text);
+            line-height: 1.5;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .action-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .action-button.secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .action-button.secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Progress Bar */
+        .budget-progress {
+            background-color: var(--gray-light);
+            height: 30px;
+            border-radius: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .budget-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-color));
+            border-radius: 0;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .budget-input-section {
+                flex-direction: column;
+            }
+            
+            .category-inputs {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-section {
+                margin-top: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, .hero-section, .action-buttons, footer {
+                display: none;
+            }
+            
+            .budget-overview, .budget-categories, .charts-section, .tips-section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand" aria-label="Vow home">
+              <img src="images/WrittenLogoColor.png" class="brand-mark" alt="Vow logo">
+              <!-- <span class="brand-text">Vow</span> -->
+            </a>
+            <a href="index.html" class="back-button">
+                Back to Home
+	    </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Wedding Budget Calculator</h1>
+        <p class="hero-subtitle">Plan your perfect wedding within budget. Track expenses, visualize spending, and make informed financial decisions.</p>
+    </section>
+
+    <!-- Budget Overview -->
+    <div class="budget-overview">
+        <div class="budget-input-section">
+            <div class="input-group">
+                <label for="total-budget">Total Wedding Budget</label>
+                <div class="currency-input-group">
+                    <div class="currency-symbol">$</div>
+                    <input type="number" id="total-budget" class="currency-input" placeholder="30000" value="30000" min="0" step="100">
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="guest-count">Expected Guests</label>
+                <input type="number" id="guest-count" placeholder="150" value="150" min="1">
+            </div>
+            <button class="update-button" onclick="updateBudget()">
+                <i class="fas fa-sync-alt"></i>
+                Update Budget
+            </button>
+        </div>
+
+        <div class="budget-progress">
+            <div class="budget-progress-bar" id="overall-progress" style="width: 0%">
+                0% Budget Used
+            </div>
+        </div>
+
+        <div class="budget-stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Budget</div>
+                <div class="stat-value" id="stat-total">$30,000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Estimated Total</div>
+                <div class="stat-value" id="stat-estimated">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Actual Spent</div>
+                <div class="stat-value" id="stat-actual">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Remaining</div>
+                <div class="stat-value" id="stat-remaining">$30,000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Cost Per Guest</div>
+                <div class="stat-value" id="stat-per-guest">$0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Budget Categories -->
+        <div class="budget-categories">
+            <h2 class="section-title">
+                <i class="fas fa-list-ul"></i>
+                Budget Categories
+            </h2>
+            <div id="categories-container">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-pie"></i>
+                Budget Visualization
+            </h2>
+            
+            <div class="chart-container">
+                <h3 class="chart-title">Budget Breakdown</h3>
+                <div class="chart-wrapper">
+                    <canvas id="budgetPieChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Estimated vs Actual</h3>
+                <div class="chart-wrapper">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i>
+                Money-Saving Tips
+            </h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        Off-Season Savings
+                    </div>
+                    <div class="tip-content">
+                        Consider getting married during off-peak months (January-March or November-December) to save 15-30% on venue and vendor costs.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-clock"></i>
+                        Daytime Wedding
+                    </div>
+                    <div class="tip-content">
+                        Morning or afternoon receptions can be 30-50% less expensive than evening events, with lower venue rental and catering costs.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-users"></i>
+                        Trim the Guest List
+                    </div>
+                    <div class="tip-content">
+                        Reducing your guest list by just 10 people can save $1,000-$3,000 depending on your venue and catering choices.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-camera"></i>
+                        Photography Package
+                    </div>
+                    <div class="tip-content">
+                        Book photography for fewer hours (ceremony + reception only) instead of full-day coverage to save $500-$1,500.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-music"></i>
+                        DJ vs Live Band
+                    </div>
+                    <div class="tip-content">
+                        A professional DJ typically costs $1,000-$2,500 compared to $3,000-$10,000 for a live band, with similar dance floor results.
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-title">
+                        <i class="fas fa-seedling"></i>
+                        In-Season Flowers
+                    </div>
+                    <div class="tip-content">
+                        Choose flowers that are in season for your wedding date to reduce floral costs by 20-40% compared to out-of-season blooms.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-button" onclick="saveBudget()">
+                <i class="fas fa-save"></i>
+                Save Budget
+            </button>
+            <button class="action-button secondary" onclick="loadBudget()">
+                <i class="fas fa-folder-open"></i>
+                Load Budget
+            </button>
+            <button class="action-button secondary" onclick="resetBudget()">
+                <i class="fas fa-redo"></i>
+                Reset All
+            </button>
+            <button class="action-button secondary" onclick="window.print()">
+                <i class="fas fa-print"></i>
+                Print Budget
+            </button>
+            <button class="action-button secondary" onclick="exportBudget()">
+                <i class="fas fa-download"></i>
+                Export PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About <i><b>vow.</b></i></h3>
+                <p><i><b>vow.</b></i> connects couples with expert wedding planners to create their perfect day. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Couples</h3>
+                <ul>
+                    <li><a href="planner-journey.html">Start Planning</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 <i><b>vow.</b></i> Wedding Planning. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Budget categories with suggested percentages
+        const budgetCategories = [
+            { id: 'venue', name: 'Venue & Catering', icon: 'fa-home', percentage: 45, estimated: 0, actual: 0, vendor: '' },
+            { id: 'photography', name: 'Photography & Videography', icon: 'fa-camera', percentage: 12, estimated: 0, actual: 0, vendor: '' },
+            { id: 'attire', name: 'Attire & Beauty', icon: 'fa-tshirt', percentage: 10, estimated: 0, actual: 0, vendor: '' },
+	        { id: 'flowers', name: 'Flowers & Decorations', icon: 'fa-seedling', percentage: 10, estimated: 0, actual: 0, vendor: '' },
+            { id: 'music', name: 'Music & Entertainment', icon: 'fa-music', percentage: 8, estimated: 0, actual: 0, vendor: '' },
+            { id: 'rings', name: 'Wedding Rings', icon: 'fa-ring', percentage: 5, estimated: 0, actual: 0, vendor: '' },
+            { id: 'transportation', name: 'Transportation', icon: 'fa-car', percentage: 3, estimated: 0, actual: 0, vendor: '' },
+            { id: 'favors', name: 'Gifts & Favors', icon: 'fa-gift', percentage: 2, estimated: 0, actual: 0, vendor: '' },
+            { id: 'other', name: 'Other Expenses', icon: 'fa-ellipsis-h', percentage: 5, estimated: 0, actual: 0, vendor: '' }
+        ];
+
+        let totalBudget = 30000;
+        let guestCount = 150;
+        let pieChart = null;
+        let comparisonChart = null;
+
+        // Initialize the budget calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBudgetFromStorage();
+            renderCategories();
+            updateBudget();
+            initCharts();
+        });
+
+        // Render budget categories
+        function renderCategories() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+
+            budgetCategories.forEach(category => {
+                const categoryElement = document.createElement('div');
+                categoryElement.className = 'category-item';
+                categoryElement.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-name">
+                            <div class="category-icon"><i class="fas ${category.icon}"></i></div>
+                            ${category.name}
+                        </div>
+                        <div class="category-percentage">${category.percentage}% of budget</div>
+                    </div>
+                    <div class="category-inputs">
+                        <div class="category-input">
+                            <label>Estimated Cost</label>
+                            <div class="currency-input-group">
+                                <div class="currency-symbol">$</div>
+                                <input type="number" id="estimated-${category.id}" class="currency-input" value="${category.estimated}" min="0" step="100" onchange="updateCategory('${category.id}', 'estimated', this.value)">
+                            </div>
+                        </div>
+                        <div class="category-input">
+                            <label>Actual Cost</label>
+                            <div class="currency-input-group">
+                                <div class="currency-symbol">$</div>
+                                <input type="number" id="actual-${category.id}" class="currency-input" value="${category.actual}" min="0" step="100" onchange="updateCategory('${category.id}', 'actual', this.value)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vendor-info">
+                        <label style="font-size: 0.85rem; color: var(--light-text);">Vendor Name</label>
+                        <input type="text" class="vendor-input" placeholder="Enter vendor name..." value="${category.vendor}" onchange="updateCategory('${category.id}', 'vendor', this.value)">
+                    </div>
+                `;
+                container.appendChild(categoryElement);
+            });
+        }
+
+        // Update category value
+        function updateCategory(categoryId, field, value) {
+            const category = budgetCategories.find(c => c.id === categoryId);
+            if (category) {
+                if (field === 'vendor') {
+                    category[field] = value;
+                } else {
+                    category[field] = parseFloat(value) || 0;
+                }
+                updateBudget();
+                saveBudgetToStorage();
+            }
+        }
+
+        // Update budget calculations
+        function updateBudget() {
+            totalBudget = parseFloat(document.getElementById('total-budget').value) || 0;
+            guestCount = parseInt(document.getElementById('guest-count').value) || 1;
+
+            const totalEstimated = budgetCategories.reduce((sum, cat) => sum + cat.estimated, 0);
+            const totalActual = budgetCategories.reduce((sum, cat) => sum + cat.actual, 0);
+            const remaining = totalBudget - totalActual;
+            const percentageUsed = totalBudget > 0 ? (totalActual / totalBudget * 100) : 0;
+            const costPerGuest = guestCount > 0 ? (totalActual / guestCount) : 0;
+
+            document.getElementById('stat-total').textContent = formatCurrency(totalBudget);
+            document.getElementById('stat-estimated').textContent = formatCurrency(totalEstimated);
+            document.getElementById('stat-actual').textContent = formatCurrency(totalActual);
+            document.getElementById('stat-remaining').textContent = formatCurrency(remaining);
+            document.getElementById('stat-per-guest').textContent = formatCurrency(costPerGuest);
+
+            const progressBar = document.getElementById('overall-progress');
+            progressBar.style.width = Math.min(percentageUsed, 100) + '%';
+            progressBar.textContent = Math.round(percentageUsed) + '% Budget Used';
+
+            if (percentageUsed > 100) {
+                progressBar.style.background = 'linear-gradient(90deg, var(--danger-color), #c82333)';
+            } else if (percentageUsed > 90) {
+                progressBar.style.background = 'linear-gradient(90deg, var(--warning-color), #e0a800)';
+            } else {
+                progressBar.style.background = 'linear-gradient(90deg, var(--primary-color), var(--primary-color))';
+            }
+
+            updateStatCardColors(remaining, totalBudget);
+            updateCharts();
+            saveBudgetToStorage();
+        }
+
+        function updateStatCardColors(remaining, budget) {
+            const remainingCard = document.getElementById('stat-remaining').parentElement;
+            remainingCard.classList.remove('danger', 'warning', 'success');
+            
+            if (remaining < 0) {
+                remainingCard.classList.add('danger');
+            } else if (remaining < budget * 0.1) {
+                remainingCard.classList.add('warning');
+            } else {
+                remainingCard.classList.add('success');
+            }
+        }
+
+        function initCharts() {
+            if (typeof Chart === 'undefined') {
+                console.error("Chart.js is not loaded");
+                return;
+            }
+            const pieCtx = document.getElementById('budgetPieChart').getContext('2d');
+            pieChart = new Chart(pieCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: budgetCategories.map(cat => cat.name),
+                    datasets: [{
+                        data: budgetCategories.map(cat => cat.estimated),
+                        backgroundColor: ['#a88868', '#5B5A41', '#b8a890', '#55392e', '#28272a', '#c7b299', '#7a795e', '#d6c8b0', '#735342'],
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { padding: 15, font: { size: 11 } } }, tooltip: { callbacks: { label: (c) => `${c.label}: ${formatCurrency(c.raw)} (${totalBudget > 0 ? Math.round((c.raw/totalBudget)*100) : 0}%)` } } }
+                }
+            });
+
+            const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+            comparisonChart = new Chart(comparisonCtx, {
+                type: 'bar',
+                data: {
+                    labels: budgetCategories.map(cat => cat.name),
+                    datasets: [
+                        { label: 'Estimated', data: budgetCategories.map(cat => cat.estimated), backgroundColor: 'rgba(168, 136, 104, 0.7)', borderColor: '#a88868', borderWidth: 2 },
+                        { label: 'Actual', data: budgetCategories.map(cat => cat.actual), backgroundColor: 'rgba(91, 90, 65, 0.7)', borderColor: '#5B5A41', borderWidth: 2 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, ticks: { callback: (v) => '$' + v.toLocaleString() } } },
+                    plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${formatCurrency(c.raw)}` } } }
+                }
+            });
+        }
+
+        function updateCharts() {
+            if (pieChart) {
+                pieChart.data.datasets[0].data = budgetCategories.map(cat => cat.estimated);
+                pieChart.update();
+            }
+            if (comparisonChart) {
+                comparisonChart.data.datasets[0].data = budgetCategories.map(cat => cat.estimated);
+                comparisonChart.data.datasets[1].data = budgetCategories.map(cat => cat.actual);
+                comparisonChart.update();
+            }
+        }
+
+        function saveBudgetToStorage() {
+            const budgetData = { totalBudget, guestCount, categories: budgetCategories };
+            localStorage.setItem('weddingBudget', JSON.stringify(budgetData));
+        }
+
+        function loadBudgetFromStorage() {
+            const savedBudget = localStorage.getItem('weddingBudget');
+            if (savedBudget) {
+                const data = JSON.parse(savedBudget);
+                totalBudget = data.totalBudget || 30000;
+                guestCount = data.guestCount || 150;
+                if (data.categories) {
+                    data.categories.forEach(savedCat => {
+                        const category = budgetCategories.find(c => c.id === savedCat.id);
+                        if (category) { Object.assign(category, savedCat); }
+                    });
+                }
+                document.getElementById('total-budget').value = totalBudget;
+                document.getElementById('guest-count').value = guestCount;
+            }
+        }
+
+        function saveBudget() { saveBudgetToStorage(); showNotification('Budget saved successfully!'); }
+        function loadBudget() { loadBudgetFromStorage(); renderCategories(); updateBudget(); showNotification('Budget loaded successfully!'); }
+        function resetBudget() {
+            if (confirm('Are you sure you want to reset all budget data?')) {
+                localStorage.removeItem('weddingBudget');
+                window.location.reload();
+            }
+        }
+        function exportBudget() { showNotification('PDF export feature coming soon!'); }
+        function formatCurrency(amount) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount); }
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: white; padding: 15px 25px; border-radius: 50px; box-shadow: var(--shadow); z-index: 1000; font-weight: 500; animation: slideUp 0.3s ease;`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+        const style = document.createElement('style');
+        style.textContent = `@keyframes slideUp { from { transform: translate(-50%, 100px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }`;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

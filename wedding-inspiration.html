@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow - Your Dream Wedding Journey | Wedding Planning Services</title>
+    <meta name="description" content="Vow connects you with expert wedding planners to create your perfect wedding day. From venue selection to catering, we handle every detail with care.">
+    <meta name="keywords" content="wedding planning, wedding planner, dream wedding, wedding venue, wedding flowers, wedding cake, wedding catering">
+    <meta name="author" content="Vow Wedding Planning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a88868; 
+            --secondary-color: #f5f5f5;
+            --accent-color: #333;
+            --text-color: #29272A; /* Using a consistent dark color */
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* NEW NAVIGATION BAR STYLES */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05); /* This makes it transparent */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .brand{
+          display:inline-flex;
+          align-items:center;
+          text-decoration:none;
+        }
+
+	.brand-mark {
+          display: flex;
+          justify-content: center;
+          height: 3.5rem; /* Reduced from 5rem */
+          width: auto;
+          object-fit: contain;
+          margin-top: 5px;   /* Reduced from 10px */
+          margin-bottom: 5px;/* Reduced from 10px */
+        }
+
+        .quick-action-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+	.back-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+
+        /* Filter Tags Section */
+        .filter-container {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: var(--gray-light);
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .filter-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-weight: 700;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .filter-tag {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            font-size: 0.9rem;
+        }
+
+        .filter-tag:hover, .filter-tag.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            column-count: 5;
+            column-gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            margin-bottom: 15px;
+            break-inside: avoid;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gallery-action {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-action:hover {
+            background-color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .gallery-action i {
+            color: var(--primary-color);
+        }
+
+        .gallery-info {
+            color: var(--white);
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-source {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .load-more-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .load-more-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .load-more-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Loading Indicator */
+        .loading {
+            display: none;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--gray-light);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 50px 20px;
+            display: none;
+        }
+
+        .no-results.active {
+            display: block;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Error Message */
+        .error-message {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            padding: 15px;
+            border-radius: 0;
+            margin: 20px;
+            text-align: center;
+            display: none;
+            border: 1px solid var(--gray-medium);
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+ /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--white);
+            color: var(--text-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                column-count: 4;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand" aria-label="Vow home">
+              <img src="images/WrittenLogoColor.png" class="brand-mark" alt="Vow logo">
+              <!-- <span class="brand-text">Vow</span> -->
+            </a>
+            <a href="index.html" class="back-button">
+                Back to Home
+	    </a>
+        </div>
+    </nav>
+
+    <!-- Filter Tags Section -->
+    <div class="filter-container">
+	<br> <br>
+        <h1>Wedding Inspiration Gallery</h1>
+        <div class="filter-tags">
+            <div class="filter-tag active" data-category="all">All</div>
+            <div class="filter-tag" data-category="venue">Venues</div>
+            <div class="filter-tag" data-category="dress">Dresses</div>
+            <div class="filter-tag" data-category="flowers">Flowers</div>
+            <div class="filter-tag" data-category="cake">Cakes</div>
+            <div class="filter-tag" data-category="decoration">Decorations</div>
+            <div class="filter-tag" data-category="rings">Rings</div>
+            <div class="filter-tag" data-category="photography">Photography</div>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" id="error-message">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p id="error-text">There was an error loading images. Please try again later.</p>
+    </div>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Gallery items will be populated by JavaScript -->
+        </div>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+        <div class="no-results" id="no-results">
+            <i class="fas fa-search"></i>
+            <h2>No results found</h2>
+            <p>Try selecting a different category</p>
+        </div>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="load-more-container">
+        <button class="load-more-button" id="load-more-button">
+            <span>Load More</span>
+            <i class="fas fa-arrow-down"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About <i><b>vow.</b></i></h3>
+                <p><i><b>vow.</b></i> connects couples with expert wedding planners to create their perfect day. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Couples</h3>
+                <ul>
+                    <li><a href="planner-journey.html">Start Planning</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+            </div>
+         </div>
+        <div class="copyright">
+            <p>&copy; 2023 <i><b>vow.</b></i> Wedding Planning. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // CONFIGURATION - REPLACE WITH YOUR GOOGLE API KEYS
+        // ==========================================
+        const API_KEY = 'AIzaSyBVN9ClbAD98Zg13587II_SE3heWXKnDx4'; // Replace with your Google API key
+        const SEARCH_ENGINE_ID = 'f16ac8b6fb9384e7b'; // Replace with your search engine ID
+        
+        // Gallery state
+        let currentPage = 1;
+        let isLoading = false;
+        let currentCategory = 'all';
+        let totalResults = 0;
+        let hasMoreImages = true;
+
+        // Initialize the gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if API keys are configured
+            if (API_KEY === 'YOUR_API_KEY' || SEARCH_ENGINE_ID === 'YOUR_SEARCH_ENGINE_ID') {
+                showError('Please configure your API keys in the JavaScript code. Replace YOUR_API_KEY and YOUR_SEARCH_ENGINE_ID with your actual keys.');
+                document.getElementById('load-more-button').style.display = 'none';
+                return;
+            }
+            
+            loadImages();
+            
+            // Set up filter tags
+            document.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    // Remove active class from all tags
+                    document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tag
+                    this.classList.add('active');
+                    
+                    // Update current category
+                    currentCategory = this.dataset.category;
+                    
+                    // Reset and reload
+                    currentPage = 1;
+                    hasMoreImages = true;
+                    document.getElementById('gallery-grid').innerHTML = '';
+                    document.getElementById('load-more-button').style.display = 'inline-flex';
+                    hideError();
+                    loadImages();
+                });
+            });
+            
+            // Set up load more button
+            document.getElementById('load-more-button').addEventListener('click', function() {
+                if (!isLoading && hasMoreImages) {
+                    loadImages();
+                }
+            });
+        });
+
+        // Load images from API
+        function loadImages() {
+            if (isLoading || !hasMoreImages) return;
+            
+            isLoading = true;
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('load-more-button').disabled = true;
+            hideError();
+            
+            // Build query
+            let query = 'wedding';
+            if (currentCategory !== 'all') {
+                query = `wedding ${currentCategory}`;
+            }
+            
+            // Calculate start index for pagination
+            const startIndex = (currentPage - 1) * 10 + 1;
+            
+            // Build the API URL
+            const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${encodeURIComponent(query)}&searchType=image&start=${startIndex}&num=10&imgSize=large&imgType=photo`;
+            
+            console.log('Fetching images from:', apiUrl);
+            
+            // Using Google Custom Search API
+            fetch(apiUrl)
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('API Response:', data);
+                    
+                    if (data.error) {
+                        throw new Error(data.error.message || 'API returned an error');
+                    }
+                    
+                    if (!data.items || data.items.length === 0) {
+                        if (currentPage === 1) {
+                            document.getElementById('no-results').classList.add('active');
+                        }
+                        hasMoreImages = false;
+                        document.getElementById('load-more-button').style.display = 'none';
+                    } else {
+                        document.getElementById('no-results').classList.remove('active');
+                        displayGoogleImages(data.items);
+                        currentPage++;
+                        
+                        // Check if we might have more images
+                        if (data.items.length < 10) {
+                            hasMoreImages = false;
+                            document.getElementById('load-more-button').style.display = 'none';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching images:', error);
+                    showError(`Failed to load images: ${error.message}. Using fallback images instead.`);
+                    // Fallback to placeholder images if API fails
+                    displayPlaceholderImages();
+                })
+                .finally(() => {
+                    isLoading = false;
+                    document.getElementById('loading').classList.remove('active');
+                    document.getElementById('load-more-button').disabled = false;
+                });
+        }
+
+        // Display images in the gallery
+        function displayGoogleImages(images) {
+            const galleryGrid = document.getElementById('gallery-grid');
+            
+            images.forEach(image => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                // Calculate height based on image aspect ratio
+                let height = 300; // Default height
+                
+                if (image.image && image.image.height && image.image.width) {
+                    const aspectRatio = image.image.height / image.image.width;
+                    const width = 300; // Fixed width for columns
+                    height = width * aspectRatio;
+                }
+                
+                galleryItem.innerHTML = `
+                    <img src="${image.link}" alt="${image.title || 'Wedding inspiration'}" style="height: ${height}px; object-fit: cover;" onerror="this.src='https://picsum.photos/seed/fallback/400/300.jpg'">
+                    <div class="gallery-overlay">
+                        <div class="gallery-actions">
+                            <div class="gallery-action" onclick="saveImage('${image.link}', '${image.link}')">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                            <div class="gallery-action" onclick="shareImage('${image.link}', '${image.link}')">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">${image.title || 'Beautiful wedding inspiration'}</div>
+                            <div class="gallery-source">${image.displayLink || 'Wedding Gallery'}</div>
+                        </div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Fallback function to display placeholder images
+        function displayPlaceholderImages() {
+            const galleryGrid = document.getElementById('gallery-grid');
+            
+            for (let i = 0; i < 10; i++) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                // Random height for Pinterest-like layout
+                const randomHeight = Math.floor(Math.random() * 200) + 200;
+                const randomSeed = Math.random().toString(36).substring(7);
+                
+                galleryItem.innerHTML = `
+                    <img src="https://picsum.photos/seed/${randomSeed}/400/${randomHeight}.jpg" alt="Wedding inspiration" style="height: ${randomHeight}px; object-fit: cover;">
+                    <div class="gallery-overlay">
+                        <div class="gallery-actions">
+                            <div class="gallery-action" onclick="saveImage('${randomSeed}', 'https://picsum.photos/seed/${randomSeed}/400/${randomHeight}.jpg')">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                            <div class="gallery-action" onclick="shareImage('${randomSeed}', 'https://picsum.photos/seed/${randomSeed}/400/${randomHeight}.jpg')">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Beautiful wedding inspiration</div>
+                            <div class="gallery-source">Wedding Gallery</div>
+                        </div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(galleryItem);
+            }
+            
+            currentPage++;
+        }
+
+        // Save image function
+        function saveImage(id, url) {
+            // In a real implementation, this would save to user's account
+            const icon = event.currentTarget.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+            
+            // Show a notification
+            showNotification('Image saved to your collection!');
+        }
+
+        // Share image function
+        function shareImage(id, url) {
+            // In a real implementation, this would open a share dialog
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Wedding Inspiration',
+                    text: 'Check out this beautiful wedding inspiration!',
+                    url: url
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                showNotification('Link copied to clipboard!');
+            }
+        }
+
+        // Show notification function
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.backgroundColor = 'var(--primary-color)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '50px';
+            notification.style.boxShadow = 'var(--shadow)';
+            notification.style.zIndex = '1000';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+
+        // Error handling functions
+        function showError(message) {
+            const errorElement = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            errorText.textContent = message;
+            errorElement.classList.add('active');
+        }
+
+        function hideError() {
+            document.getElementById('error-message').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
+

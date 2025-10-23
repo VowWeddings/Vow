@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow - Your Dream Wedding Journey | Wedding Planning Services</title>
+    <meta name="description" content="Vow connects you with expert wedding planners to create your perfect wedding day. From venue selection to catering, we handle every detail with care.">
+    <meta name="keywords" content="wedding planning, wedding planner, dream wedding, wedding venue, wedding flowers, wedding cake, wedding catering">
+    <meta name="author" content="Vow Wedding Planning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a88868;
+            --secondary-color: #f5f5f5;
+            --accent-color: #29272A;
+            --text-color: #29272A; /* Main text color */
+            --light-text: #29272A; /* Secondary text color */
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* NEW NAVIGATION BAR STYLES */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05); /* This makes it transparent */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .brand{
+          display:inline-flex;
+          align-items:center;
+          text-decoration:none;
+        }
+
+	.brand-mark {
+          display: flex;
+          justify-content: center;
+          height: 3.5rem; /* Reduced from 5rem */
+          width: auto;
+          object-fit: contain;
+          margin-top: 5px;   /* Reduced from 10px */
+          margin-bottom: 5px;/* Reduced from 10px */
+        }
+
+        .quick-action-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+	.back-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+
+        .cta-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #5B5A41;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                        url('https://picsum.photos/seed/weddingplanner/1920/600.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pricing-footnote {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-header {
+            padding: 25px;
+            text-align: center;
+            background-color: #a88868;
+            color: var(--white);
+        }
+
+        .pricing-card.featured .pricing-header {
+            background-color: #5B5A41;
+        }
+        
+        .pricing-card:last-child .pricing-header {
+            background-color: black;
+        }
+
+
+        .plan-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .plan-period {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .pricing-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-description {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .select-plan-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .pricing-card.featured .select-plan-button {
+            background-color: var(--accent-color);
+        }
+
+        .select-plan-button:hover {
+            background-color: var(--text-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Sign Up Form */
+        .signup-section {
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
+        }
+
+        .signup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .signup-header {
+            padding: 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .signup-form {
+            padding: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .plan-selection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .plan-option {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .plan-option.selected {
+            border-color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+
+        .plan-option h4 {
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .plan-option p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .submit-button {
+            background-color: #5B5A41;
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .modal-message {
+            margin-bottom: 25px;
+            color: var(--light-text);
+        }
+
+        .modal-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand" aria-label="Vow home">
+              <img src="images/WrittenLogoColor.png" class="brand-mark" alt="Vow logo">
+              <!-- <span class="brand-text">Vow</span> -->
+            </a>
+            <a href="index.html" class="back-button">
+                Back to Home
+	    </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Join <i><b>vow.</b></i> as a Wedding Planner</h1>
+            <p>Connect with couples looking for expert wedding planning services and grow your business with our supportive platform designed specifically for wedding professionals.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <h2 class="section-title">Why Join <i><b>vow.</b></i>?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="benefit-title">Connect with Clients</h3>
+                <p>Access our network of engaged couples actively seeking wedding planning services. We match you with clients based on your expertise and availability.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="benefit-title">Grow Your Business</h3>
+                <p>Build your portfolio, gain exposure, and increase your bookings with our marketing tools and client management system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Basic</h3>
+                        <div class="plan-price">$29</div>
+                        <div class="plan-period">per month</div>
+                    </div>
+                    <div class="pricing-content">
+                        <p class="plan-description">Perfect for new wedding planners looking to establish their presence.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 3 minimum client matches per month</li>
+                            <li><i class="fas fa-check"></i> Basic profile listing</li>
+                            <li><i class="fas fa-check"></i> Access to planning resources</li>
+                            <li><i class="fas fa-check"></i> Basic client management tools</li>
+                        </ul>
+                        <button class="select-plan-button" data-plan="basic">Select Basic</button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Professional</h3>
+                        <div class="plan-price">$79</div>
+                        <div class="plan-period">per month</div>
+                    </div>
+                    <div class="pricing-content">
+                        <p class="plan-description">Our most popular plan for established wedding planners.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 10 minimum client matches per month</li>
+                            <li><i class="fas fa-check"></i> Featured profile placement</li>
+                            <li><i class="fas fa-check"></i> Advanced portfolio matching</li>
+                            <li><i class="fas fa-check"></i> Priority client support</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics dashboard</li>
+                        </ul>
+                        <button class="select-plan-button" data-plan="professional">Select Professional</button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <div class="plan-price">$149</div>
+                        <div class="plan-period">per month</div>
+                    </div>
+                    <div class="pricing-content">
+                        <p class="plan-description">For top-tier wedding planners seeking maximum exposure.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 15 minimum client matches per month</li>
+                            <li><i class="fas fa-check"></i> Premium profile with video</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                            <li><i class="fas fa-check"></i> Lead generation tools</li>
+                            <li><i class="fas fa-check"></i> Custom branding options</li>
+                        </ul>
+                        <button class="select-plan-button" data-plan="premium">Select Premium</button>
+                    </div>
+                </div>
+            </div>
+            <p class="pricing-footnote">*All plans are subject to a 0.5% commission fee per customer package sold.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                How does the client matching process work?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Our intelligent matching system connects you with couples based on your expertise, style, availability, and location. When a couple's requirements align with your profile, you'll receive a notification with their details.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I change my subscription plan later?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can upgrade or downgrade your subscription plan at any time. If you upgrade, you'll be charged the prorated difference immediately. If you downgrade, the new rate will apply at the start of your next billing cycle.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Is there a contract or commitment period?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>No, we don't require long-term contracts. All our plans are month-to-month, so you have the flexibility to cancel or change your plan at any time with no penalties.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                How do I get paid for my services?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p><i><b>vow.</b></i> doesn't handle payment processing between you and your clients. You'll discuss payment arrangements directly with your clients and handle invoicing and payment collection through your preferred methods.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Form -->
+    <section class="signup-section">
+        <div class="signup-container">
+            <div class="signup-header">
+                <h2>Start Your Journey with <i><b>vow.</b></i></h2>
+                <p>Fill out the form below to join our community of expert wedding planners</p>
+            </div>
+            <form class="signup-form" id="plannerSignupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" name="businessName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select experience level</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Primary Service Location</label>
+                    <input type="text" id="location" name="location" placeholder="City, State" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Your Plan</label>
+                    <div class="plan-selection">
+                        <div class="plan-option" data-plan="basic">
+                            <h4>Basic</h4>
+                            <p>$29/month</p>
+                        </div>
+                        <div class="plan-option selected" data-plan="professional">
+                            <h4>Professional</h4>
+                            <p>$79/month</p>
+                        </div>
+                        <div class="plan-option" data-plan="premium">
+                            <h4>Premium</h4>
+                            <p>$149/month</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="portfolio">Portfolio Website</label>
+                    <input type="url" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bio">Tell us about your wedding planning style</label>
+                    <textarea id="bio" name="bio" placeholder="Describe your approach to wedding planning, your specialties, and what makes you unique..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">Join <i><b>vow.</b></i> Today</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About <i><b>vow.</b></i></h3>
+                <p><i><b>vow.</b></i> connects couples with expert wedding planners to create their perfect day. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Couples</h3>
+                <ul>
+                    <li><a href="planner-journey.html">Start Planning</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 <i><b>vow.</b></i> Wedding Planning. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="modal-title">Application Received!</h2>
+            <p class="modal-message">Thank you for your interest in joining <i><b>vow.</b></i>! Our team will review your application within 3-5 business days and contact you with next steps.</p>
+            <button class="modal-button" id="closeModal">Got It</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Plan Selection
+            const planOptions = document.querySelectorAll('.plan-option');
+            const selectPlanButtons = document.querySelectorAll('.select-plan-button');
+            
+            planOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove selected class from all options
+                    planOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                });
+            });
+            
+            selectPlanButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const plan = button.getAttribute('data-plan');
+                    
+                    // Remove selected class from all options
+                    planOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to corresponding option
+                    document.querySelector(`.plan-option[data-plan="${plan}"]`).classList.add('selected');
+                    
+                    // Scroll to signup form
+                    document.querySelector('.signup-section').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Form Submission
+            const signupForm = document.getElementById('plannerSignupForm');
+            const successModal = document.getElementById('successModal');
+            const closeModal = document.getElementById('closeModal');
+            
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show success modal
+                successModal.classList.add('active');
+                
+                // Reset form
+                signupForm.reset();
+                
+                // Reset plan selection to default
+                planOptions.forEach(opt => opt.classList.remove('selected'));
+                document.querySelector('.plan-option[data-plan="professional"]').classList.add('selected');
+            });
+            
+            closeModal.addEventListener('click', () => {
+                successModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    successModal.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

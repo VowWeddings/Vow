@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow - Your Dream Wedding Journey | Wedding Planning Services</title>
+    <meta name="description" content="Vow connects you with expert wedding planners to create your perfect wedding day. From venue selection to catering, we handle every detail with care.">
+    <meta name="keywords" content="wedding planning, wedding planner, dream wedding, wedding venue, wedding flowers, wedding cake, wedding catering">
+    <meta name="author" content="Vow Wedding Planning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #29272A;
+            --secondary-color: #29272A;
+            --accent-color: #333;
+            --text-color: #29272A;
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --dark-overlay: rgba(0,0,0,0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #F6E4DB;
+        }
+
+        h1, h2, h3 {
+          font-family: 'Playfair Display', serif;
+        }
+
+        button, .cta-button, .secondary-cta, .quick-action-btn,
+        input, select, textarea{
+          font-family: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* replace your .logo-container/.logo-icon rules */
+        .brand{
+          display:inline-flex;
+          align-items:center;
+          text-decoration:none;
+        }
+
+        .brand-mark {
+          display: flex;
+          justify-content: center;
+          height: 2.5rem;
+          width: auto;
+          object-fit: contain;
+          margin-top: 10px;
+          margin: 15px;
+        }
+
+        .brand-text{
+          font-family: 'Playfair Display', serif;
+          font-size:2rem;
+          font-weight:700;
+          color:var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .quick-action-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        :root {
+          --landing-y: 1%;  /* adjust lower to move visible area higher (e.g. 20%, 15%) */
+          --nav-h: 64px;
+        }
+
+        /* Landing Page Styles */
+        .landing {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+                        url('images/BlubiTwo.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .landing::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
+                        url('images/BlubiTwo.jpeg');
+            background-size: cover;
+            background-position: center var(--landing-y);
+            filter: blur(2px);
+            z-index: 0;
+          }
+
+        .landing > * {
+          transform: translateY(-13vh);
+          position: relative;
+          z-index: 2;
+        }
+
+        .top-logo{
+          position: absolute;
+          left: 50%;
+          top: 65px;
+          transform: translateX(-50%);
+          max-width: 180px;
+          height: auto;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .tagline {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .value-prop {
+            font-family: 'Roboto', serif;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 350;
+            color: var(--text-color);
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #5B5A41;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .secondary-cta {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-cta:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-10px);}
+            60% {transform: translateX(-50%) translateY(-5px);}
+        }
+
+        /* About Section */
+        .about-section{
+          position: relative;
+          padding: 80px 20px;
+          color:#fff;
+          background: white;
+          background-size: cover;
+          background-position: center 80%;
+          background-repeat: no-repeat;
+          min-height: 70vh;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #29272A;
+        }
+
+        .section-title-lower {
+          font-size: 2.5rem;
+          text-align: center;
+          margin-bottom: 2rem;
+          color: #29272A;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .about-text {
+            font-family: 'Roboto', serif;
+            font-size: 1.4rem;
+            font-weight: 350;
+            flex: 1;
+            min-width: 300px;
+            color: #29272A;
+            text-align: center;
+        }
+
+        .about-image img{ height:auto; }          /* only to neutralize previous 85vh */
+
+        /* square crop */
+        .about-image{
+          aspect-ratio: 1 / 1;                    /* square box */
+          overflow: hidden;                        /* hide overflow */
+          border-radius: 15px;
+          box-shadow: var(--shadow);
+          max-width: 500px;
+          margin-inline: auto;        /* keep your rounding */
+        }
+
+        .about-image img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;                       /* crop top/bottom */
+          object-position: center;                 /* center the crop */
+        }
+
+        .about-card{
+          background:#fff;
+          border-radius:15px;
+          box-shadow: var(--shadow);
+          padding:32px;
+          max-width:1200px;
+          margin:0 auto 80px;
+        }
+
+        @media (max-width:768px){
+          .about-card{ padding:20px; }
+        }
+
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #29272A;
+        }
+
+        .value-title-text {
+          color: #29272A;
+        }
+
+        /* Resources Section */
+        .resources-section {
+          background-color: #fff;
+          color: #29272A;
+          padding: 20px 20px;
+        }
+
+        .resources-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        .resources-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 40px;
+          margin-top: 50px;
+        }
+
+        .resource-card {
+          background-color: #fff;
+          border-radius: 15px;
+          box-shadow: var(--shadow);
+          overflow: hidden;
+          text-align: left;
+          transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .resource-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .resource-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.4rem;
+          margin: 20px;
+        }
+
+        .resource-card p {
+          font-family: 'Roboto', serif;
+          color: #29272A;
+          margin: 0 20px 20px;
+        }
+
+        .resource-link {
+          display: inline-block;
+          margin: 0 20px 25px;
+          color: #5B5A41;
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+          color: var(--primary-color);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 40px 20px;
+            background-color: white;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .review-text:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .review-rating {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 72px 24px 48px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .quick-actions {
+                display: none;
+            }
+        }
+
+        /* Background decoration */
+        .bg-decoration {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,180,184,0.2) 0%, rgba(232,180,184,0) 70%);
+            z-index: -1;
+        }
+
+        .bg-decoration-1 {
+            top: 10%;
+            left: 5%;
+        }
+
+        .bg-decoration-2 {
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .bg-decoration-3 {
+            top: 50%;
+            right: 10%;
+        }
+
+        .video-section {
+          background:#fff; padding:40px 0;
+        }
+
+        .section-title-lower{
+          margin-bottom: 1.25rem;
+        }
+
+        .landing-video{
+          width: min(100%, 960px);
+          margin: 28px auto 24px;
+          box-shadow: var(--shadow);
+          border-radius: 12px;
+          overflow: hidden;
+          background: #29272A;
+        }
+
+        .landing-video-el{
+          display: block;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+        }
+
+        @media (max-width: 768px){
+          .landing-video{ margin: 8px 16px 20px; }
+          .landing-video-caption{ text-align:center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Decorations -->
+    <div class="bg-decoration bg-decoration-1"></div>
+    <div class="bg-decoration bg-decoration-2"></div>
+    <div class="bg-decoration bg-decoration-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="brand" aria-label="Vow home">
+              <img src="images/WrittenLogoColor.png" class="brand-mark" alt="Vow logo">
+              <!-- <span class="brand-text">Vow</span> -->
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="quick-actions">
+                <a href="planner-journey.html" class="quick-action-btn">Plan Your Wedding</a>
+                <a href="planner-signup.html" class="quick-action-btn">Join as Planner</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <section class="landing" id="home">
+        <img src="images/LogoNewColor.png" class="top-logo" alt="Vow logo" />
+        <h1 class="tagline">Crafting Your Perfect Wedding Day</h1>
+        <p class="value-prop">
+          <i>vow.</i> connects you with expert wedding planners who transform your vision into reality. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.
+        </p>
+        <div class="cta-container">
+            <a href="planner-journey.html" class="cta-button">Start Your Journey</a>
+            <a href="planner-signup.html" class="secondary-cta">For Wedding Planners</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">Our Story</h2>
+        <div class="about-card">
+          <div class="about-content">
+            <div class="about-text">
+              <p><i><b>vow.</b></i> began with our founder's own overwhelming wedding planning experience and a simple mission: <b>to handle every stressful detail so you can focus on the joy.</b> We believe every couple deserves a day that perfectly reflects their love story, and our passion is making that journey as beautiful as the destination.</p>
+            </div>
+            <div class="about-image">
+              <img src="images/OurStory.jpeg" alt="Vow Team">
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title">Our Values</h2>
+        <div class="values-container">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="value-title">Vision</h3>
+                <p class="value-title-text">To become the leading digital wedding-planning marketplace, a platform where couples design, plan and celebrate their dream weddings with ease and creativity</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3 class="value-title">Mission</h3>
+                <p class="value-title-text">To empower couples to bring their unique vision to life through a seamless digital experience that blends inspiration, organization, and human expertise — taking away all the noise so they can focus on what truly matters: their story.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+      <div class="resources-container">
+        <h2 class="section-title-lower">Plan Every Detail</h2>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <img src="images/Inspiration.jpg" alt="Wedding Inspiration" class="resource-image">
+            <h3 class="resource-title">Wedding Inspiration Board</h3>
+            <p>Explore elegant themes, colors, and trends to spark ideas for your special day.</p>
+            <a href="wedding-inspiration.html" class="resource-link">Explore Inspiration →</a>
+          </div>
+
+          <div class="resource-card">
+            <img src="images/Planner.jpg" alt="Planning Checklist" class="resource-image">
+            <h3 class="resource-title">Planning Checklist</h3>
+            <p>Stay on track with our easy-to-follow checklist covering every milestone.</p>
+            <a href="planning-checklist.html" class="resource-link">View Checklist →</a>
+          </div>
+
+          <div class="resource-card">
+            <img src="images/Budget.jpeg" alt="Budget Calculator" class="resource-image">
+            <h3 class="resource-title">Budget Calculator</h3>
+            <p>Plan confidently with our smart budget tool to estimate and manage wedding costs.</p>
+            <a href="budget-calculator.html" class="resource-link">Open Calculator →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Landing video -->
+     <section class="video-section" aria-label="Intro video">
+      <div class="resources-container">
+        <h2 class="section-title-lower">Remember why you started:</h2>
+      </div>
+      <div class="landing-video">
+        <video
+          class="landing-video-el"
+          controls
+          playsinline
+          preload="metadata"
+          poster="images/landing-video-poster.jpg"
+        >
+          <source src="Videos/vow.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="reviews-container">
+            <h2 class="section-title-lower">Love Stories We've Helped Create</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--light-text);">Don't just take our word for it. Hear from couples who've experienced the Vow difference.</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">Vow made our wedding planning experience absolutely magical. Our planner understood our vision perfectly and brought it to life beyond our wildest dreams. Every detail was handled with such care and professionalism.</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple1/100/100.jpg" alt="Emily & James" class="author-image">
+                            <div class="author-info">
+                                <h4>Emily & James</h4>
+                                <p>June 2023 • Garden Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">As a busy professional, I was overwhelmed with wedding planning until I found Vow. They matched us with the perfect planner who handled everything seamlessly. Our destination wedding was flawless and stress-free!</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple2/100/100.jpg" alt="Sophia & Michael" class="author-image">
+                            <div class="author-info">
+                                <h4>Sophia & Michael</h4>
+                                <p>September 2023 • Destination Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">The attention to detail was incredible! From the floral arrangements to the timeline of events, everything was perfect. Our guests are still talking about how beautiful and well-organized our wedding was.</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple3/100/100.jpg" alt="Olivia & David" class="author-image">
+                            <div class="author-info">
+                                <h4>Olivia & David</h4>
+                                <p>April 2023 • Rustic Barn Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">Vow helped us plan our multicultural wedding with such sensitivity and creativity. They blended our traditions beautifully and created a celebration that honored both our families. We couldn't be happier!</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple4/100/100.jpg" alt="Aisha & Carlos" class="author-image">
+                            <div class="author-info">
+                                <h4>Aisha & Carlos</h4>
+                                <p>August 2023 • Multicultural Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">We had a tight budget but big dreams. Our Vow planner worked wonders within our budget, finding amazing vendors and creative solutions. Our wedding looked like a million bucks without breaking the bank!</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple5/100/100.jpg" alt="Mia & Ryan" class="author-image">
+                            <div class="author-info">
+                                <h4>Mia & Ryan</h4>
+                                <p>May 2023 • Budget-Friendly Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-content">
+                        <p class="review-text">The day-of coordination service was a lifesaver! Our planner handled everything so we could just enjoy our day. When unexpected rain threatened our outdoor ceremony, she had a beautiful backup plan ready instantly.</p>
+                        <div class="review-author">
+                            <img src="https://picsum.photos/seed/couple6/100/100.jpg" alt="Isabella & Noah" class="author-image">
+                            <div class="author-info">
+                                <h4>Isabella & Noah</h4>
+                                <p>July 2023 • Outdoor Wedding</p>
+                                <div class="review-rating">
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                    <i class="fas fa-star star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Vow</h3>
+                <p>Vow connects couples with expert wedding planners to create their perfect day. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Couples</h3>
+                <ul>
+                    <li><a href="planner-journey.html">Start Planning</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Planners</h3>
+                <ul>
+                    <li><a href="planner-signup.html">Join Vow</a></li>
+                    <li><a href="#">Planner Resources</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Planner Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Vow Wedding Planning. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set up smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

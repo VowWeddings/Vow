@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vow - Your Dream Wedding Journey | Wedding Planning Services</title>
+    <meta name="description" content="Vow connects you with expert wedding planners to create your perfect wedding day. From venue selection to catering, we handle every detail with care.">
+    <meta name="keywords" content="wedding planning, wedding planner, dream wedding, wedding venue, wedding flowers, wedding cake, wedding catering">
+    <meta name="author" content="Vow Wedding Planning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a88868; /* Using a consistent dark color */
+            --secondary-color: #f5f5f5;
+            --accent-color: #333;
+            --text-color: #333; /* Using a consistent dark color */
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+	body {
+            font-family: 'Roboto', serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding-top: calc(3.5rem + 10px); /* Add this line */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* NEW NAVIGATION BAR STYLES */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.05); /* This makes it transparent */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .brand{
+          display:inline-flex;
+          align-items:center;
+          text-decoration:none;
+        }
+
+	.brand-mark {
+          display: flex;
+          justify-content: center;
+          height: 3.5rem; /* Reduced from 5rem */
+          width: auto;
+          object-fit: contain;
+          margin-top: 5px;   /* Reduced from 10px */
+          margin-bottom: 5px;/* Reduced from 10px */
+        }
+
+        .quick-action-btn {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+
+	/* Progress Bar */
+
+        .progress-container {
+            background-color: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px; /* Reduced padding for a tighter look */
+            position: sticky;
+            top: calc(3.5rem + 10px);
+            z-index: 99;
+            /* The shadow is now here, at the bottom of the whole unit */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .progress-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .progress-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 60%;
+            width: 80%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: -1;
+        }
+
+        .progress-step.completed:not(:last-child):after {
+            background-color: var(--primary-color);
+        }
+
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-weight: bold;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .step-circle,
+        .progress-step.completed .step-circle {
+            background-color: var(--primary-color);
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Selection Section Styles */
+        .selection-container {
+            display: none;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .selection-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--light-text);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .option-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .option-card.selected {
+            border: 5px solid var(--primary-color);
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-card.selected::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+
+        .option-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .option-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .option-card:hover .option-overlay {
+            opacity: 1;
+        }
+
+        .option-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .option-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Selection Checkmark */
+        .selection-checkmark {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .option-card.selected .selection-checkmark {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .next-button, .prev-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .prev-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .next-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .prev-button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .next-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Moodboard Styles */
+        .moodboard-container {
+            display: none;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .moodboard-container.active {
+            display: block;
+        }
+
+        .moodboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .moodboard-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 200px;
+        }
+
+        .moodboard-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .moodboard-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .planner-intro {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--light-text);
+        }
+
+        /* Planner Profile Styles */
+        .planner-container {
+            display: none;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .planner-container.active {
+            display: block;
+        }
+
+        .planner-profile {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .planner-header {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            background-color: var(--secondary-color);
+        }
+
+        .planner-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .planner-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .planner-name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .planner-bio {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+
+        .planner-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .moodboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .moodboard-grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 200px;
+        }
+
+        .moodboard-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .moodboard-grid-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .moodboard-grid-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Confirmation & Sign Up Styles */
+        .confirmation-container {
+            display: none;
+            padding: 60px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .confirmation-container.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .confirmation-message {
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        .cta-button {
+            background-color: #5B5A41;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--secondary-color);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background-color: var(--white);
+            color: var(--text-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+	.secondary-cta {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-cta:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+
+        .back-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .progress-step:not(:last-child):after {
+                left: 50%;
+                width: 100%;
+            }
+            .step-label {
+                font-size: 0.7rem;
+            }
+            .planner-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .planner-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand" aria-label="Vow home">
+              <img src="images/WrittenLogoColor.png" class="brand-mark" alt="Vow logo">
+              <!-- <span class="brand-text">Vow</span> -->
+            </a>
+            <a href="index.html" class="back-button">
+                Back to Home
+	    </a>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Flowers</div>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Venue</div>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Style</div>
+            </div>
+            <div class="progress-step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Cake</div>
+            </div>
+            <div class="progress-step" data-step="5">
+                <div class="step-circle">5</div>
+                <div class="step-label">Music</div>
+            </div>
+            <div class="progress-step" data-step="6">
+                <div class="step-circle">6</div>
+                <div class="step-label">Catering</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selection Sections -->
+    <section class="selection-container active" id="flowers-selection">
+        <h2 class="category-title">Flowers</h2>
+        <p class="category-subtitle">Which of these flowers catches your heart? Select all that speak to you.</p>
+        <div class="options-grid" id="flowers-options"></div>
+        <div class="button-container">
+            <button class="prev-button" style="visibility: hidden;">Previous</button>
+            <button class="next-button" id="flowers-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <section class="selection-container" id="venue-selection">
+        <h2 class="category-title">Venue</h2>
+        <p class="category-subtitle">Where would you like to say "I do"? Choose your dream venues.</p>
+        <div class="options-grid" id="venue-options"></div>
+        <div class="button-container">
+            <button class="prev-button" id="venue-prev">Previous</button>
+            <button class="next-button" id="venue-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <section class="selection-container" id="style-selection">
+        <h2 class="category-title">Wedding Style</h2>
+        <p class="category-subtitle">What's your wedding style? Select all themes that resonate with you.</p>
+        <div class="options-grid" id="style-options"></div>
+        <div class="button-container">
+            <button class="prev-button" id="style-prev">Previous</button>
+            <button class="next-button" id="style-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <section class="selection-container" id="cake-selection">
+        <h2 class="category-title">Wedding Cake</h2>
+        <p class="category-subtitle">Choose the cakes that will sweeten your celebration.</p>
+        <div class="options-grid" id="cake-options"></div>
+        <div class="button-container">
+            <button class="prev-button" id="cake-prev">Previous</button>
+            <button class="next-button" id="cake-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <section class="selection-container" id="music-selection">
+        <h2 class="category-title">Music</h2>
+        <p class="category-subtitle">What music will set the tone for your special day?</p>
+        <div class="options-grid" id="music-options"></div>
+        <div class="button-container">
+            <button class="prev-button" id="music-prev">Previous</button>
+            <button class="next-button" id="music-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <section class="selection-container" id="catering-selection">
+        <h2 class="category-title">Catering</h2>
+        <p class="category-subtitle">Select the cuisines that will delight your guests.</p>
+        <div class="options-grid" id="catering-options"></div>
+        <div class="button-container">
+            <button class="prev-button" id="catering-prev">Previous</button>
+            <button class="next-button" id="catering-next" disabled>Next</button>
+        </div>
+    </section>
+
+    <!-- Moodboard Section -->
+    <section class="moodboard-container" id="moodboard">
+        <h2 class="category-title">Your Wedding Vision</h2>
+        <div class="moodboard" id="moodboard-grid"></div>
+        <p class="planner-intro">Our expert planners are here to bring your vision to life, handling every detail with care. Let's create a celebration as unique as your love story.</p>
+        <button class="cta-button" id="makeItReal" style="margin: 0 auto;">Ready to Make It Real?</button>
+    </section>
+
+    <!-- Wedding Planner Profile -->
+    <section class="planner-container" id="planner-profile">
+        <div class="planner-profile">
+            <div class="planner-header">
+                <img src="" alt="Wedding Planner" class="planner-image" id="planner-image">
+                <div class="planner-info">
+                    <h2 class="planner-name" id="planner-name"></h2>
+                    <p class="planner-bio" id="planner-bio"></p>
+                    <button class="cta-button" id="contactPlanner">Contact This Planner</button>
+                </div>
+            </div>
+            <div class="planner-tabs">
+                <button class="tab-button active" data-tab="moodboard">Your Vision</button>
+                <button class="tab-button" data-tab="contact">Contact</button>
+            </div>
+            <div class="tab-content active" id="moodboard-tab">
+                <div class="moodboard-grid" id="planner-moodboard-grid"></div>
+            </div>
+            <div class="tab-content" id="contact-tab">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" required></div>
+                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                    <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone"></div>
+                    <div class="form-group"><label for="wedding-date">Wedding Date</label><input type="date" id="wedding-date" name="wedding-date"></div>
+                    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your dream wedding..."></textarea></div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation & Sign Up MODIFIED -->
+    <section class="confirmation-container" id="confirmation">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="confirmation-title">Your Request Has Been Sent!</h2>
+        <p class="confirmation-message">Your chosen wedding planner will contact you within 24 hours.</p>
+        <a href="index.html" class="submit-button" style="text-decoration: none; display: inline-block; margin-top: 20px;">Back to Home</a>
+    </section>
+
+    <!-- Loading Indicator -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About <i><b>vow.</b></i></h3>
+                <p><i><b>vow.</b></i> connects couples with expert wedding planners to create their perfect day. From intimate ceremonies to grand celebrations, we're here to make your special day unforgettable.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Couples</h3>
+                <ul>
+                    <li><a href="planner-journey.html">Start Planning</a></li>
+                    <li><a href="wedding-inspiration.html">Wedding Inspiration</a></li>
+                    <li><a href="planning-checklist.html">Planning Checklist</a></li>
+                    <li><a href="budget-calculator.html">Budget Calculator</a></li>
+                </ul>
+
+        <div class="copyright">
+            <p>&copy; 2023 <i><b>vow.</b></i> Wedding Planning. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const weddingCategories = {
+            flowers: {
+                title: "Flowers",
+                subtitle: "Which of these flowers catches your heart? Select all that speak to you.",
+                options: [ { id: 1, name: "Rose Garden", image: "https://help.gardeningexpress.co.uk/wp-content/uploads/2023/01/victor-malyushev-w_N-XCjiM0o-unsplash-edited-1-scaled.jpg", label: "Classic Rose Garden" }, { id: 2, name: "Wildflower Meadow", image: "https://assets.americanmeadows.com/media/wysiwyg/20210827_215234742_iOS-2100x74_800x500.jpg", label: "Wildflower Meadow" }, { id: 3, name: "Tropical Paradise", image: "https://cdn.atwilltech.com/flowerdatabase/t/tropical-paradise-table-arrangement-62e0718e67e9c1.19724930.425.jpg", label: "Tropical Paradise" }, { id: 4, name: "Peony Elegance", image: "https://www.mypeonysociety.com/wp-content/uploads/2024/12/8sEkccFd-scaled-2400x0-c-default.jpeg", label: "Peony Elegance" }, { id: 5, name: "Lavender Fields", image: "https://www.brides.com/thmb/_TTXmWI5mWFSBRoy8OY2YDJ67fU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PhotoAug0744935PM-7743050eeaaa4e3dbd656f8b77c462d2.jpg", label: "Lavender Fields" } ]
+            },
+            venue: {
+                title: "Venue",
+                subtitle: "Where would you like to say \"I do\"? Choose your dream venues.",
+                options: [ { id: 1, name: "Beachfront Paradise", image: "https://sunandseabeachweddings.com/wp-content/uploads/2020/01/034-1.jpg", label: "Beachfront Paradise" }, { id: 2, name: "Historic Mansion", image: "https://static.showit.co/800/jJf2-KzwQ0ezkUnRWbd4QA/74082/grant-humphries-mansion-wedding-venue-in-denver-colorado.jpg", label: "Historic Mansion" }, { id: 3, name: "Rustic Barn", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc7x_1rfTS_IyZfrWI2uEPbX86U2Hxwg-IvA&s", label: "Rustic Barn" }, { id: 4, name: "Garden Estate", image: "https://hctg-images.imgix.net/images/venues/secluded-garden-estate/20240213SecludedGardenEstate18.jpg?auto=format%2Ccompress&fit=clamp&h=430&s=5cdba880efeb484027280b761a62c65c", label: "Garden Estate" }, { id: 5, name: "Enchanted Forest", image: "https://bodasyweddings.com/wp-content/uploads/2017/03/enchanted-forest-wedding.jpg", label: "Enchanted Forest" } ]
+            },
+            style: {
+                title: "Wedding Style",
+                subtitle: "What's your wedding style? Select all themes that resonate with you.",
+                options: [ { id: 1, name: "Classic Elegance", image: "https://www.theknot.com/tk-media/images/18b39993-49ca-4f55-9cdf-9bdbe285e955", label: "Classic Elegance" }, { id: 2, name: "Bohemian Chic", image: "https://organiceventssupplyco.com/cdn/shop/articles/shutterstock_2144857717.jpg?v=1701305161", label: "Bohemian Chic" }, { id: 3, name: "Modern Minimalist", image: "https://www.lolavalentina.com/wp-content/uploads/2022/11/Lola_Minimalist-Blog-2.jpg", label: "Modern Minimalist" }, { id: 4, name: "Art Deco", image: "https://chameleonchair.com/wp-content/uploads/2019/01/Glamorous-Art-Deco-Wedding-Featured-on-Inside-Weddings3.jpg", label: "Art Deco" }, { id: 5, name: "Glamorous", image: "https://media-api.xogrp.com/images/d0eda053-c3f4-4709-b2cd-c65d0705da23~rs_768.h", label: "Glamorous" } ]
+            },
+            cake: {
+                title: "Wedding Cake",
+                subtitle: "Choose the cakes that will sweeten your celebration.",
+                options: [ { id: 1, name: "Classic White", image: "https://media-api.xogrp.com/images/cf032ee7-82a4-4e51-aeff-82a25869f75c~rs_768.h", label: "Classic White" }, { id: 2, name: "Naked Cake", image: "https://sugargeekshow.com/wp-content/uploads/2022/03/naked-wedding-cake-FEATURED-scaled.jpg", label: "Naked Cake" }, { id: 3, name: "Floral Cascade", image: "https://apis.xogrp.com/media-api/images/c21e1322-c542-11e5-af58-22000aa61a3e", label: "Floral Cascade" }, { id: 4, name: "Geometric Design", image: "https://thecocoabeanbakery.com/wp-content/uploads/2017/03/1488981569.jpg", label: "Geometric Design" }, { id: 5, name: "Gold Accents", image: "https://img.freepik.com/premium-photo/three-tier-wedding-cake-with-white-flowers-gold-accents_964739-28676.jpg", label: "Gold Accents" } ]
+            },
+            music: {
+                title: "Music",
+                subtitle: "What music will set the tone for your special day?",
+                options: [ { id: 1, name: "Live String Quartet", image: "https://allthedaintydetails.com/wp-content/uploads/sites/25790/2022/04/The-Weiners-685-scaled.jpg", label: "Live String Quartet" }, { id: 2, name: "Jazz Band", image: "https://theritztrio.com/wp-content/uploads/2024/01/Harburnritztrio-700x441.jpg", label: "Jazz Band" }, { id: 3, name: "DJ Party", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSTFmaPGVq-cyEtHkXpIOYZTKJS-LqxSdQWQ&s", label: "DJ Party" }, { id: 4, name: "Acoustic Duo", image: "https://static.wixstatic.com/media/460ef4_a1d08ea518e848d5b2c25e106ea1df54~mv2.jpg/v1/fill/w_640,h_424,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/460ef4_a1d08ea518e848d5b2c25e106ea1df54~mv2.jpg", label: "Acoustic Duo" }, { id: 5, name: "Orchestra", image: "https://i.pinimg.com/736x/a7/ef/b4/a7efb445c273d51024b125ca0e25b8cc.jpg", label: "Orchestra" } ]
+            },
+            catering: {
+                title: "Catering",
+                subtitle: "Select the cuisines that will delight your guests.",
+                options: [ { id: 1, name: "Farm-to-Table", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd8WFINQrs0vaVwtgB2PnwBJ6Jjnp1aguejQ&s", label: "Farm-to-Table" }, { id: 2, name: "International Buffet", image: "https://media-api.xogrp.com/images/9eab5290-1d7b-40c7-9ba9-bc22ef79a01b~rs_768.h-cr_0.628.1458.2086", label: "International Buffet" }, { id: 3, name: "Gourmet Sit-Down", image: "https://www.brides.com/thmb/IMhS9vGayy-XNseONGPctsyHqsk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/wedding-food-plated-meal-chris-j-evans-primary-0425-95f5a84ebdc14313a1b1c85da906662e.jpg", label: "Gourmet Sit-Down" }, { id: 4, name: "Food Stations", image: "https://perfectsettingcatering.com/wp-content/uploads/2020/02/Kelly_OKeefe_Photography_Perfect_Setting_Malvern_Wedding_-161-1.jpg", label: "Food Stations" }, { id: 5, name: "Cocktail Reception", image: "https://perfectsettingcatering.com/wp-content/uploads/2020/03/039-Philip-Gabriel-Photography-Top-of-the-Tower-1120x746.jpg", label: "Cocktail Reception" } ]
+            }
+        };
+        const weddingPlanners = [
+            {
+                id: 1,
+                name: "Eleanor Rose",
+                bio: "With over 10 years of experience in creating fairytale weddings, Eleanor specializes in romantic, elegant celebrations that capture the unique love story of each couple.",
+                image: "images/ZhenPic.jpeg"
+            },
+            {
+                id: 2,
+                name: "Eleanor Rose",
+                bio: "With over 10 years of experience in creating fairytale weddings, Eleanor specializes in romantic, elegant celebrations that capture the unique love story of each couple.",
+                image: "images/ZhenPic.jpeg"
+            },
+            {
+                id: 3,
+                name: "Eleanor Rose",
+                bio: "With over 10 years of experience in creating fairytale weddings, Eleanor specializes in romantic, elegant celebrations that capture the unique love story of each couple.",
+                image: "images/ZhenPic.jpeg"
+            },
+            {
+                id: 4,
+                name: "Eleanor Rose",
+                bio: "With over 10 years of experience in creating fairytale weddings, Eleanor specializes in romantic, elegant celebrations that capture the unique love story of each couple.",
+                image: "images/ZhenPic.jpeg"
+            },
+            {
+                id: 5,
+                name: "Eleanor Rose",
+                bio: "With over 10 years of experience in creating fairytale weddings, Eleanor specializes in romantic, elegant celebrations that capture the unique love story of each couple.",
+                image: "images/ZhenPic.jpeg"
+            },
+        ];
+        
+        const weddingSelections = { flowers: [], venue: [], style: [], cake: [], music: [], catering: [] };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            populateOptions('flowers');
+            setupCategoryNavigation();
+            document.getElementById('makeItReal').addEventListener('click', showPlannerProfile);
+            setupTabNavigation();
+            document.getElementById('contact-form').addEventListener('submit', handleContactForm);
+            // MODIFIED: Removed signup form listener
+        });
+
+        function populateOptions(category) {
+            const optionsContainer = document.getElementById(`${category}-options`);
+            optionsContainer.innerHTML = '';
+            document.querySelector(`#${category}-selection .category-title`).textContent = weddingCategories[category].title;
+            document.querySelector(`#${category}-selection .category-subtitle`).textContent = weddingCategories[category].subtitle;
+            weddingCategories[category].options.forEach(option => {
+                const optionCard = document.createElement('div');
+                optionCard.className = 'option-card';
+                optionCard.dataset.category = category;
+                optionCard.dataset.option = option.id;
+                if (weddingSelections[category].some(selected => selected.id === option.id)) {
+                    optionCard.classList.add('selected');
+                }
+                optionCard.innerHTML = `<img src="${option.image}" alt="${option.name}"><div class="selection-checkmark"><i class="fas fa-check"></i></div><div class="option-label">${option.label}</div>`;
+                optionCard.addEventListener('click', function() { selectOption(category, option.id); });
+                optionsContainer.appendChild(optionCard);
+            });
+            document.getElementById(`${category}-next`).disabled = weddingSelections[category].length === 0;
+        }
+
+        function selectOption(category, optionId) {
+            const optionCard = document.querySelector(`[data-category="${category}"][data-option="${optionId}"]`);
+            const selectedOption = weddingCategories[category].options.find(option => option.id === optionId);
+            const existingIndex = weddingSelections[category].findIndex(option => option.id === optionId);
+            if (existingIndex !== -1) {
+                weddingSelections[category].splice(existingIndex, 1);
+                optionCard.classList.remove('selected');
+            } else {
+                weddingSelections[category].push(selectedOption);
+                optionCard.classList.add('selected');
+            }
+            document.getElementById(`${category}-next`).disabled = weddingSelections[category].length === 0;
+        }
+
+        function setupCategoryNavigation() {
+            const categories = ['flowers', 'venue', 'style', 'cake', 'music', 'catering'];
+            categories.forEach((category, index) => {
+                const nextButton = document.getElementById(`${category}-next`);
+                if (nextButton) {
+                    nextButton.addEventListener('click', function() {
+                        if (index < categories.length - 1) {
+                            document.querySelector(`.progress-step[data-step="${index + 1}"]`).classList.add('completed');
+                            document.getElementById(`${category}-selection`).classList.remove('active');
+                            const nextCategory = categories[index + 1];
+                            document.getElementById(`${nextCategory}-selection`).classList.add('active');
+                            document.querySelector(`.progress-step[data-step="${index + 1}"]`).classList.remove('active');
+                            document.querySelector(`.progress-step[data-step="${index + 2}"]`).classList.add('active');
+                            if (document.getElementById(`${nextCategory}-options`).children.length === 0) {
+                                populateOptions(nextCategory);
+                            }
+                        } else {
+                            showMoodboard();
+                        }
+                    });
+                }
+                if (index > 0) {
+                    const prevButton = document.getElementById(`${category}-prev`);
+                    if (prevButton) {
+                        prevButton.addEventListener('click', function() {
+                            document.getElementById(`${category}-selection`).classList.remove('active');
+                            const prevCategory = categories[index - 1];
+                            document.getElementById(`${prevCategory}-selection`).classList.add('active');
+                            document.querySelector(`.progress-step[data-step="${index + 1}"]`).classList.remove('active');
+                            document.querySelector(`.progress-step[data-step="${index}"]`).classList.add('active');
+                        });
+                    }
+                }
+            });
+        }
+
+        function showMoodboard() {
+            document.querySelector('.progress-step[data-step="6"]').classList.add('completed');
+            document.getElementById('catering-selection').classList.remove('active');
+            document.getElementById('moodboard').classList.add('active');
+            const moodboardGrid = document.getElementById('moodboard-grid');
+            moodboardGrid.innerHTML = '';
+            Object.keys(weddingSelections).forEach(category => {
+                weddingSelections[category].forEach(option => {
+                    moodboardGrid.innerHTML += `<div class="moodboard-item"><img src="${option.image}" alt="${option.name}"><div class="moodboard-label">${option.label}</div></div>`;
+                });
+            });
+        }
+
+        function showPlannerProfile() {
+            document.getElementById('moodboard').classList.remove('active');
+            document.getElementById('planner-profile').classList.add('active');
+            const selectedPlanner = weddingPlanners[Math.floor(Math.random() * weddingPlanners.length)];
+            document.getElementById('planner-image').src = selectedPlanner.image;
+            document.getElementById('planner-name').textContent = selectedPlanner.name;
+            document.getElementById('planner-bio').textContent = selectedPlanner.bio;
+            const plannerMoodboardGrid = document.getElementById('planner-moodboard-grid');
+            plannerMoodboardGrid.innerHTML = '';
+            Object.keys(weddingSelections).forEach(category => {
+                weddingSelections[category].forEach(option => {
+                    plannerMoodboardGrid.innerHTML += `<div class="moodboard-grid-item"><img src="${option.image}" alt="${option.name}"><div class="moodboard-grid-label">${option.label}</div></div>`;
+                });
+            });
+        }
+
+        function setupTabNavigation() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById(`${targetTab}-tab`).classList.add('active');
+                });
+            });
+            document.getElementById('contactPlanner').addEventListener('click', function() {
+                document.querySelector('[data-tab="contact"]').click();
+            });
+        }
+
+        function handleContactForm(event) {
+            event.preventDefault();
+            document.getElementById('loading').classList.add('active');
+            setTimeout(() => {
+                document.getElementById('loading').classList.remove('active');
+                document.getElementById('planner-profile').classList.remove('active');
+                document.getElementById('confirmation').classList.add('active');
+                document.getElementById('contact-form').reset();
+            }, 1500);
+        }
+        
+        // MODIFIED: Unused functions removed for cleanliness
+    </script>
+</body>
+</html>
