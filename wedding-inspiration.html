@@ -67,14 +67,14 @@
         }
 
 	.brand-mark {
-          display: flex;
-          justify-content: center;
-          height: 3.5rem; /* Reduced from 5rem */
-          width: auto;
-          object-fit: contain;
-          margin-top: 5px;   /* Reduced from 10px */
-          margin-bottom: 5px;/* Reduced from 10px */
-        }
+   	   display: flex;
+   	   justify-content: center;
+   	   height: 2.5rem; /* Changed from 3.5rem */
+    	   width: auto;
+   	   object-fit: contain;
+   	   margin: 15px;      /* Replaced margin-top/bottom */
+	}
+
 
         .quick-action-btn {
             background-color: transparent;
@@ -95,21 +95,22 @@
             color: var(--white);
         }
 
-	.back-button {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Roboto', serif;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+.back-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 8px 15px; /* Corrected */
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif; /* Corrected */
+    text-decoration: none;
+    font-size: 0.9rem; /* Added */
+    font-weight: 500;  /* Added */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
         .back-button:hover {
             background-color: var(--primary-color);
             color: var(--white);
