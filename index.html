@@ -204,7 +204,6 @@
 
       :root {
         --landing-y: 1%;  /* adjust lower to move visible area higher (e.g. 20%, 15%) */
-        --nav-h: 64px;
       }
 
       /* Landing Page Styles */
@@ -237,6 +236,14 @@
         }
 
       .landing > * {
+        transform: translateY(-12.5vh);
+        position: relative;
+        z-index: 2;
+      }
+
+      .landing .tagline,
+      .landing .value-prop,
+      .landing .cta-container {
         transform: translateY(-12.5vh);
         position: relative;
         z-index: 2;
@@ -380,23 +387,23 @@
           text-align: center;
       }
 
-      .about-image img{ height:auto; }          /* only to neutralize previous 85vh */
+      .about-image img{ height:auto; }
 
       /* square crop */
       .about-image{
-        aspect-ratio: 1 / 1;                    /* square box */
-        overflow: hidden;                        /* hide overflow */
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
         border-radius: 15px;
         box-shadow: var(--shadow);
         max-width: 500px;
-        margin-inline: auto;        /* keep your rounding */
+        margin-inline: auto;
       }
 
       .about-image img{
         width: 100%;
         height: 100%;
-        object-fit: cover;                       /* crop top/bottom */
-        object-position: center;                 /* center the crop */
+        object-fit: cover;
+        object-position: center;
       }
 
       .about-card{
