@@ -249,6 +249,15 @@
         z-index: 2;
       }
 
+      /* override for short heights */
+      @media (max-height: 700px){
+        .landing .tagline,
+        .landing .value-prop,
+        .landing .cta-container {
+          transform: translateY(-8vh);
+        }
+      }
+
       .top-logo{
         position: absolute;
         left: 50%;
